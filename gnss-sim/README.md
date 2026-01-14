@@ -35,6 +35,14 @@ In this simulator, the aircraft can be thought of as the **GNSS receiver moving 
 This is used to compute:
 
 1. **ECEF coordinates of the receiver**, which then can be used to get distances to satellites **(pseudoranges)** as well as **doppler shifts**.
+
+### IQ Signal Explanation:
+
+The in-phase quadrature (IQ) signal, in this demonstration is designed to include ...
+
+
+
+
 These results combined with a PRN is then used to compile the **base GNSS signal**, which mimics what a real receiver would measure if it were flying along the aircraft's trajectory.
 
 ---

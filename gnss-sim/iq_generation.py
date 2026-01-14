@@ -15,7 +15,12 @@ def generate_iq(prn, pseudorange, doppler_shift, sampling_freq, signal_duration)
     signal_time_samples_array = np.arange(0, signal_duration, t_samples) # Creating evenly spaced sampling intervals (counting up by `t_samples`) for `signal_duration` / `t_samples` amount of enteries. 
 
 
-    # code = generate_ca_code(prn, len(signal_time_samples_array))
-    phase = 2 * np.pi * doppler_shift * signal_time_samples_array # as time increases (signal_time_samples) the rotation angle increases (phase). The doppler shift (hz) affects speed of rotation 
-    # iq = 
-    return # iq
+    code = generate_ca_code(prn, len(signal_time_samples_array))
+    phase = 2 * np.pi * doppler_shift * signal_time_samples_array # as time increases (signal_time_samples_array) the rotation angle increases (phase). The doppler shift (hz) affects speed of rotation 
+    
+    # IQ aka In-Phase (X-axis) Quadrature (Y-Axis), with the unique CA code randomly flipping signal (value 1 or -1)
+    iq = code * np.exp(1j * phase)  # For each Phase point, we create 2 numbers for both axis where I = cos (left/right) and Q = sin (up/down)
+    
+    # The reason we dont do cos(phase) sin(phase) directly is for simplicity using Eulers Formula, most SDRs like HackRF use the complex number as well (Python complex64) so it is more aligned with HW simulators out there
+
+    return iq
