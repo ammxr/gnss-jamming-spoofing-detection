@@ -16,8 +16,6 @@ def generate_iq(prn, pseudorange, doppler_shift, sampling_freq, signal_duration)
 
 
     # code = generate_ca_code(prn, len(signal_time_samples_array))
-    # phase = 
+    phase = 2 * np.pi * doppler_shift * signal_time_samples_array # as time increases (signal_time_samples) the rotation angle increases (phase). The doppler shift (hz) affects speed of rotation 
     # iq = 
-    return # iq 
-
-
+    return # iq
