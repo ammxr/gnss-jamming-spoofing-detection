@@ -48,3 +48,5 @@ These results combined with a PRN is then used to compile the **base GNSS signal
 ---
 
 Pretty much up to this point, the goal was to **generate satellite signals based on real aircraft routes** and so I worked backwards from actual routes to achieve that.
+
+## Publisher (ZeroMQ)
