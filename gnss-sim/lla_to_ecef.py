@@ -11,7 +11,7 @@ def lla_to_ecef(lat, lon, alt):
     a = 6378137.0 # Earth Equatorial radius
     b = 6356752.3142
     e = np.sqrt( (a**2 - b**2)/ a**2)
-    print("Value of e ", e)
+    # print("Value of e ", e)
 
     lat = np.radians(lat)
     lon = np.radians(lon)
@@ -21,7 +21,7 @@ def lla_to_ecef(lat, lon, alt):
     x = (N + alt) * np.cos(lat) * np.cos(lon)
     y = (N + alt) * np.cos(lat) * np.sin(lon)
     z = (N * (1 - e**2) + alt) * np.sin(lat)
-    print("ECEF coords: ", [x, y, z])
+    # print("ECEF coords: ", [x, y, z])
     return np.array([x, y, z])
 
 # Test on equator/prime merdian coords 

@@ -1,6 +1,6 @@
 import zmq
 import time
-
+import json
 
 # ZMQ DOCs: https://learning-0mq-with-pyzmq.readthedocs.io/en/latest/pyzmq/patterns/pubsub.html
 
@@ -11,7 +11,8 @@ context = zmq.Context()
 socket = context.socket(zmq.PUB)
 socket.bind("tcp://*:%s" % port)
 
-time.sleep(10) # 10 seconds for sub to connect
+print("Started ZeroMQ Service on Port:", port)
+time.sleep(5) # 5 seconds for sub to connect
 
 def publish_iq(topic, iq, metadata):
     # 3 Frames (func parameters), the common  send_string() or send() methods only supports single frame, so we use send_multipart() 
