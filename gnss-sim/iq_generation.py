@@ -1,7 +1,7 @@
 import numpy as np
 
 def pseudorange(receiver_ecef, sattelite_ecef):
-    return np.linalg.norm(sat_ecef - rx_ecef) # distance between sattelite and receiver (vector)
+    return np.linalg.norm(sat_ecef - receiver_ecef) # distance between sattelite and receiver (vector)
 
 def generate_ca_code(prn, samples):
     np.random.seed(prn)
@@ -21,6 +21,6 @@ def generate_iq(prn, pseudorange, doppler_shift, sampling_freq, signal_duration)
     # IQ aka In-Phase (X-axis) Quadrature (Y-Axis), with the unique CA code randomly flipping signal (value 1 or -1)
     iq = code * np.exp(1j * phase)  # For each Phase point, we create 2 numbers for both axis where I = cos (left/right) and Q = sin (up/down)
     
-    # The reason we dont do cos(phase) sin(phase) directly is for simplicity using Eulers Formula, most SDRs like HackRF use the complex number as well (Python complex64) so it is more aligned with HW simulators out there
+    # The reason we dont do cos(phase) sin(phase) directly is for simplicity using Eulers Formula, most SDRs like HackRF use the complex number as well (Python complex64 ) so it is aligned with HW simulators out there
 
     return iq
