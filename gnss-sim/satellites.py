@@ -2,7 +2,7 @@
 
 import numpy as np
 
-def generate_satellite_positions(num_sats=8):
+def generate_satellite_positions(num_sats):
     sats = []
     for i in range(num_sats):
         angle = np.deg2rad(360 * i / num_sats) # Evenly spaced (in circular formation) satellites)
